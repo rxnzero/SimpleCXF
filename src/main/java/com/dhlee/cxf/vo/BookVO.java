@@ -29,7 +29,13 @@ public class BookVO implements Serializable {
 		this.author = author;
 	}
 	
-	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("bookId=").append(bookId);
+		sb.append(", bookName=").append(bookName);
+		sb.append(", author=").append(author);
+		return sb.toString();
+	}
 	
 
 }

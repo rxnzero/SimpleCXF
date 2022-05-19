@@ -19,8 +19,8 @@ public class RestClient {
 	
 	public static void main(String[] args) {
 		RestClient client = new RestClient();
-		client.testGetBook("cxf");
-		client.testGetBook("sample");
+		client.testGetBook("java-post");
+		client.testGetBook("kotlin");
 	}
 	
 	public void testGetBook(String bookName) {
