@@ -18,23 +18,25 @@ public class CxfWebClient {
 
 	public static void main(String[] args) {
 		try {
-				String bookName = "kotlin";
-				String path = URLEncoder.encode(bookName, "UTF-8");;
 				
-				WebClient client = WebClient
-				.create("http://localhost:8080/SimpleCXF/bookservice/getbook",
-				Collections.singletonList(new JacksonJsonProvider()))
-				.path(path).accept(MediaType.APPLICATION_JSON);
-//				BookVO message = client.get(BookVO.class);
-//				System.out.println("response : " + message.toString());
-				
-				/// get object
-				BookVO message = client.post(null, BookVO.class);
-				System.out.println("response : " + message.toString());
-				
-				/// get json string
-				String jsonString = client.post(null, String.class);
-				System.out.println("response : " + jsonString);
+			String baseURI = "http://localhost:8080/SimpleCXF/bookservice/getbook";
+			String bookName = "kotlin";
+			String path = URLEncoder.encode(bookName, "UTF-8");;
+			
+			WebClient client = WebClient
+			.create(baseURI,
+			Collections.singletonList(new JacksonJsonProvider()))
+			.path(path).accept(MediaType.APPLICATION_JSON);
+//			BookVO message = client.get(BookVO.class);
+//			System.out.println("response : " + message.toString());
+			
+			/// get object
+			BookVO message = client.post(null, BookVO.class);
+			System.out.println("response : " + message.toString());
+			
+			/// get json string
+			String jsonString = client.post(null, String.class);
+			System.out.println("response : " + jsonString);
 
 		}
 		catch(Exception ex) {
